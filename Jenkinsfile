@@ -28,13 +28,14 @@ pipeline {
         stage('parB') {
           steps {
             fileExists 'one.txt'
+            sleep 10
           }
         }
       }
     }
     stage('End Message') {
       steps {
-        sleep 30
+        echo 'Done!'
       }
     }
   }
