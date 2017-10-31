@@ -12,9 +12,24 @@ pipeline {
 '''
       }
     }
-    stage('Wait 30') {
-      steps {
-        sleep 30
+    stage('Parallel') {
+      parallel {
+        stage('Wait 30') {
+          steps {
+            sleep 30
+          }
+        }
+        stage('parA') {
+          steps {
+            sh '''date
+'''
+          }
+        }
+        stage('parB') {
+          steps {
+            fileExists 'one.txt'
+          }
+        }
       }
     }
     stage('End Message') {
