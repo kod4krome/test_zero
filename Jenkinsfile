@@ -1,19 +1,25 @@
 pipeline {
-  agent any
+  agent none
   stages {
-    stage('Wait A') {
+    stage('Start Message') {
+      steps {
+        echo 'Begin!'
+      }
+    }
+    stage('Status') {
+      steps {
+        sh '''git status
+'''
+      }
+    }
+    stage('Wait 30') {
       steps {
         sleep 30
       }
     }
-    stage('Wait B') {
+    stage('End Message') {
       steps {
         sleep 30
-      }
-    }
-    stage('Message') {
-      steps {
-        echo 'Done!'
       }
     }
   }
