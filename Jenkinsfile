@@ -3,15 +3,15 @@ pipeline {
   stages {
     stage('Wait A') {
       steps {
-        sleep 5
+        sleep 30
       }
     }
     stage('Wait B') {
       steps {
-        sleep 5
+        sleep 30
       }
     }
-    stage('') {
+    stage('Message') {
       steps {
         echo 'Done!'
       }
